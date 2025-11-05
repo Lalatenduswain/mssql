@@ -2,6 +2,78 @@
 
 Complete documentation for installing Microsoft SQL Server 2022 (RTM-CU19) Developer Edition on Ubuntu 24.04 LTS.
 
+## 🚀 Automated Installation Script (NEW!)
+
+**File:** `install-mssql-2022-ubuntu2404.sh` (23 KB)
+
+**One-command installation** - Fully automated script that handles everything:
+- ✅ System requirements check
+- ✅ Microsoft GPG key import
+- ✅ Repository configuration
+- ✅ SQL Server 2022 CU19 installation
+- ✅ OpenLDAP 2.5 dependency fix (Ubuntu 24.04)
+- ✅ SQL Server configuration
+- ✅ Service startup and verification
+- ✅ Command-line tools installation
+- ✅ Complete installation verification
+
+### Quick Installation
+
+```bash
+# Download and run the automated script
+wget https://raw.githubusercontent.com/Lalatenduswain/mssql/main/install-mssql-2022-ubuntu2404.sh
+chmod +x install-mssql-2022-ubuntu2404.sh
+sudo ./install-mssql-2022-ubuntu2404.sh -y
+```
+
+### Script Features
+
+- **🎨 Color-coded output** for easy progress tracking
+- **📊 Progress indicators** for long-running tasks
+- **✔️ Validation checks** at each step
+- **🔍 Automatic troubleshooting** and error recovery
+- **📝 Detailed logging** to `/tmp/mssql-install-*.log`
+- **⚙️ Configurable options** via command-line arguments
+
+### Usage Options
+
+```bash
+# Show help
+sudo ./install-mssql-2022-ubuntu2404.sh --help
+
+# Install with custom password
+sudo ./install-mssql-2022-ubuntu2404.sh -p 'MyStr0ng!Pass' -y
+
+# Install with custom memory limit (4 GB)
+sudo ./install-mssql-2022-ubuntu2404.sh -p 'MyStr0ng!Pass' -m 4096 -y
+
+# Install Express edition
+sudo ./install-mssql-2022-ubuntu2404.sh -e Express -y
+```
+
+### Command-Line Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-p, --password` | SA password | SQLServer2022! |
+| `-e, --edition` | Edition (Developer, Express, Standard, Enterprise) | Developer |
+| `-m, --memory` | Max memory in MB | Auto-calculated |
+| `-y, --yes` | Skip confirmations | Interactive |
+| `-h, --help` | Show help message | - |
+
+### What the Script Does
+
+1. ✅ **System Check** - Verifies Ubuntu version, memory, disk space, network
+2. ✅ **GPG Key** - Imports Microsoft package signing key
+3. ✅ **Repository** - Adds SQL Server 2022 repository (Ubuntu 22.04 compat)
+4. ✅ **Installation** - Installs SQL Server 2022 CU19 package
+5. ✅ **OpenLDAP Fix** - Downloads and installs OpenLDAP 2.5 libraries
+6. ✅ **Configuration** - Sets up SQL Server with your password
+7. ✅ **Service Start** - Starts and enables SQL Server service
+8. ✅ **Tools** - Installs sqlcmd and related utilities
+9. ✅ **Verification** - Tests connection and validates version
+10. ✅ **Summary** - Displays connection details and next steps
+
 ## 📚 Documentation Files
 
 ### 1. Professional PDF Documentation
