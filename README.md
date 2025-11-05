@@ -76,7 +76,26 @@ sudo ./install-mssql-2022-ubuntu2404.sh -e Express -y
 
 ## 📚 Documentation Files
 
-### 1. Professional PDF Documentation
+### 1. SA Password Change Guide (NEW!)
+**File:** `change-sa-password-guide.md`
+
+Complete guide for changing the SQL Server SA password via command-line interface:
+- ✅ Multiple methods (mssql-conf, sqlcmd, interactive)
+- ✅ Step-by-step instructions with examples
+- ✅ Password requirements and validation
+- ✅ Troubleshooting common issues
+- ✅ Security best practices
+- ✅ Automated password change script
+- ✅ Quick reference commands
+
+**Quick Example:**
+```bash
+sudo systemctl stop mssql-server
+sudo MSSQL_SA_PASSWORD='YourNewStr0ng!Password' /opt/mssql/bin/mssql-conf set-sa-password
+sudo systemctl start mssql-server
+```
+
+### 2. Professional PDF Documentation
 **File:** `mssql-2022-documentation.pdf` (258 KB)
 
 A beautifully formatted, publication-quality PDF document with:
